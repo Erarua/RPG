@@ -8,6 +8,8 @@
 #include "AbilitySystemComponent.h"
 #include "RPGCharacterBase.generated.h"
 
+class UBasicAttributeSet;
+
 UCLASS()
 class RPG_API ARPGCharacterBase : public ACharacter, public IAbilitySystemInterface
 {
@@ -20,6 +22,9 @@ public:
 	// Ability System Component
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "AbilitySystem")
 	UAbilitySystemComponent* AbilitySystemComponent;
+	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "AbilitySystem")
+	UBasicAttributeSet* BasicAttributeSet;
 
 protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "AbilitySystem")

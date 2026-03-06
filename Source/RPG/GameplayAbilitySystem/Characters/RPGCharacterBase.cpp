@@ -6,6 +6,7 @@
 
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "RPG/GameplayAbilitySystem/AttributeSets/BasicAttributeSet.h"
 
 // Sets default values
 ARPGCharacterBase::ARPGCharacterBase()
@@ -36,6 +37,9 @@ ARPGCharacterBase::ARPGCharacterBase()
 	GetCharacterMovement()->MinAnalogWalkSpeed = 20.0f;
 	GetCharacterMovement()->BrakingDecelerationWalking = 2000.0f;
 	GetCharacterMovement()->BrakingDecelerationFalling = 1500.f;
+	
+	// Add the basic attribute set
+	BasicAttributeSet = CreateDefaultSubobject<UBasicAttributeSet>(TEXT("BasicAttributeSet"));
 
 }
 

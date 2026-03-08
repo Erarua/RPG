@@ -1,0 +1,35 @@
+Begin Object Class=/Script/Engine.AnimMontage Name="Montage_MeleeAttack_AxeSwing" ExportPath="/Script/Engine.AnimMontage'/Game/RPG-Assets/Animations/Axe/Montage_MeleeAttack_AxeSwing.Montage_MeleeAttack_AxeSwing'"
+   Begin Object Class=/Script/NiagaraAnimNotifies.AnimNotifyState_TimedNiagaraEffect Name="AnimNotifyState_TimedNiagaraEffect_0" ExportPath="/Script/NiagaraAnimNotifies.AnimNotifyState_TimedNiagaraEffect'/Game/RPG-Assets/Animations/Axe/Montage_MeleeAttack_AxeSwing.Montage_MeleeAttack_AxeSwing:AnimNotifyState_TimedNiagaraEffect_0'"
+   End Object
+   Begin Object Class=/Script/Engine.AnimDataModel Name="AnimDataModel" ExportPath="/Script/Engine.AnimDataModel'/Game/RPG-Assets/Animations/Axe/Montage_MeleeAttack_AxeSwing.Montage_MeleeAttack_AxeSwing:AnimDataModel'"
+   End Object
+   Begin Object Class=/Game/AnimNotifies/AN_HitScanStart.AN_HitScanStart_C Name="AN_HitScanStart_C_0" ExportPath="/Game/AnimNotifies/AN_HitScanStart.AN_HitScanStart_C'/Game/RPG-Assets/Animations/Axe/Montage_MeleeAttack_AxeSwing.Montage_MeleeAttack_AxeSwing:AN_HitScanStart_C_0'"
+   End Object
+   Begin Object Class=/Game/AnimNotifies/AN_HitScanEnd.AN_HitScanEnd_C Name="AN_HitScanEnd_C_0" ExportPath="/Game/AnimNotifies/AN_HitScanEnd.AN_HitScanEnd_C'/Game/RPG-Assets/Animations/Axe/Montage_MeleeAttack_AxeSwing.Montage_MeleeAttack_AxeSwing:AN_HitScanEnd_C_0'"
+   End Object
+   Begin Object Name="AnimNotifyState_TimedNiagaraEffect_0" ExportPath="/Script/NiagaraAnimNotifies.AnimNotifyState_TimedNiagaraEffect'/Game/RPG-Assets/Animations/Axe/Montage_MeleeAttack_AxeSwing.Montage_MeleeAttack_AxeSwing:AnimNotifyState_TimedNiagaraEffect_0'"
+      Template="/Script/Niagara.NiagaraSystem'/Game/VFX/WeaponTrail/Fx/NS_Basic_Trail_2.NS_Basic_Trail_2'"
+      SocketName="axe_equipped_socket"
+      LocationOffset=(X=0.000000,Y=0.000000,Z=90.000000)
+      Scale=(X=1.500000,Y=1.500000,Z=1.500000)
+   End Object
+   Begin Object Name="AnimDataModel" ExportPath="/Script/Engine.AnimDataModel'/Game/RPG-Assets/Animations/Axe/Montage_MeleeAttack_AxeSwing.Montage_MeleeAttack_AxeSwing:AnimDataModel'"
+      NumberOfFrames=130000
+      NumberOfKeys=130001
+   End Object
+   Begin Object Name="AN_HitScanStart_C_0" ExportPath="/Game/AnimNotifies/AN_HitScanStart.AN_HitScanStart_C'/Game/RPG-Assets/Animations/Axe/Montage_MeleeAttack_AxeSwing.Montage_MeleeAttack_AxeSwing:AN_HitScanStart_C_0'"
+   End Object
+   Begin Object Name="AN_HitScanEnd_C_0" ExportPath="/Game/AnimNotifies/AN_HitScanEnd.AN_HitScanEnd_C'/Game/RPG-Assets/Animations/Axe/Montage_MeleeAttack_AxeSwing.Montage_MeleeAttack_AxeSwing:AN_HitScanEnd_C_0'"
+   End Object
+   CompositeSections(0)=(SectionName="Default",LinkedMontage="/Script/Engine.AnimMontage'Montage_MeleeAttack_AxeSwing'",SegmentIndex=0,SegmentLength=2.166667,LinkedSequence="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-attack-single.axe-attack-single'")
+   SlotAnimTracks(0)=(AnimTrack=(AnimSegments=((CachedPlayLength=2.166667,AnimReference="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-attack-single.axe-attack-single'",AnimEndTime=2.166667))))
+   CommonTargetFrameRate=(Numerator=30)
+   Notifies(0)=(NotifyName="TimedNiagaraEffect",NotifyStateClass="/Script/NiagaraAnimNotifies.AnimNotifyState_TimedNiagaraEffect'AnimNotifyState_TimedNiagaraEffect_0'",Duration=0.697830,EndLink=(LinkedMontage="/Script/Engine.AnimMontage'Montage_MeleeAttack_AxeSwing'",SegmentIndex=0,SegmentLength=2.166667,LinkValue=1.019390,LinkedSequence="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-attack-single.axe-attack-single'"),Guid=43DB67054BEC30269CBE37B29D5F191D,LinkedMontage="/Script/Engine.AnimMontage'Montage_MeleeAttack_AxeSwing'",SegmentIndex=0,SegmentLength=2.166667,LinkValue=0.321561,LinkedSequence="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-attack-single.axe-attack-single'")
+   Notifies(1)=(NotifyName="AN_HitScanStart_C",Notify="/Game/AnimNotifies/AN_HitScanStart.AN_HitScanStart_C'AN_HitScanStart_C_0'",Guid=BC68C7EA4C888755D76F2190EAEA2D61,TrackIndex=1,LinkedMontage="/Script/Engine.AnimMontage'Montage_MeleeAttack_AxeSwing'",SegmentIndex=0,SegmentLength=2.166667,LinkValue=0.355623,LinkedSequence="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-attack-single.axe-attack-single'")
+   Notifies(2)=(NotifyName="AN_HitScanEnd_C",Notify="/Game/AnimNotifies/AN_HitScanEnd.AN_HitScanEnd_C'AN_HitScanEnd_C_0'",Guid=0A66E4864EB8D2BBBA83B2803F8F1314,TrackIndex=1,LinkedMontage="/Script/Engine.AnimMontage'Montage_MeleeAttack_AxeSwing'",SegmentIndex=0,SegmentLength=2.166667,LinkValue=0.701576,LinkedSequence="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-attack-single.axe-attack-single'")
+   SequenceLength=2.166667
+   AnimNotifyTracks(0)=(TrackName="1",TrackColor=(R=0.500000,G=0.500000,B=0.500000,A=1.000000))
+   AnimNotifyTracks(1)=(TrackName="2",TrackColor=(R=0.900000,G=0.900000,B=0.900000,A=0.900000))
+   DataModelInterface=AnimDataModel'Montage_MeleeAttack_AxeSwing:AnimDataModel'
+   Skeleton="/Script/Engine.Skeleton'/Game/Characters/Mannequins/Meshes/SK_Mannequin.SK_Mannequin'"
+End Object

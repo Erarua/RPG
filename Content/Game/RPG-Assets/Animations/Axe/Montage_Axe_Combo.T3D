@@ -1,0 +1,94 @@
+Begin Object Class=/Script/Engine.AnimMontage Name="Montage_Axe_Combo" ExportPath="/Script/Engine.AnimMontage'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo'"
+   Begin Object Class=/Script/NiagaraAnimNotifies.AnimNotifyState_TimedNiagaraEffect Name="AnimNotifyState_TimedNiagaraEffect_2" ExportPath="/Script/NiagaraAnimNotifies.AnimNotifyState_TimedNiagaraEffect'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AnimNotifyState_TimedNiagaraEffect_2'"
+   End Object
+   Begin Object Class=/Script/NiagaraAnimNotifies.AnimNotifyState_TimedNiagaraEffect Name="AnimNotifyState_TimedNiagaraEffect_1" ExportPath="/Script/NiagaraAnimNotifies.AnimNotifyState_TimedNiagaraEffect'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AnimNotifyState_TimedNiagaraEffect_1'"
+   End Object
+   Begin Object Class=/Script/NiagaraAnimNotifies.AnimNotifyState_TimedNiagaraEffect Name="AnimNotifyState_TimedNiagaraEffect_0" ExportPath="/Script/NiagaraAnimNotifies.AnimNotifyState_TimedNiagaraEffect'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AnimNotifyState_TimedNiagaraEffect_0'"
+   End Object
+   Begin Object Class=/Script/Engine.AnimDataModel Name="AnimDataModel" ExportPath="/Script/Engine.AnimDataModel'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AnimDataModel'"
+   End Object
+   Begin Object Class=/Game/AnimNotifies/AN_HitScanStart.AN_HitScanStart_C Name="AN_HitScanStart_C_2" ExportPath="/Game/AnimNotifies/AN_HitScanStart.AN_HitScanStart_C'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AN_HitScanStart_C_2'"
+   End Object
+   Begin Object Class=/Game/AnimNotifies/AN_HitScanStart.AN_HitScanStart_C Name="AN_HitScanStart_C_1" ExportPath="/Game/AnimNotifies/AN_HitScanStart.AN_HitScanStart_C'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AN_HitScanStart_C_1'"
+   End Object
+   Begin Object Class=/Game/AnimNotifies/AN_HitScanStart.AN_HitScanStart_C Name="AN_HitScanStart_C_0" ExportPath="/Game/AnimNotifies/AN_HitScanStart.AN_HitScanStart_C'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AN_HitScanStart_C_0'"
+   End Object
+   Begin Object Class=/Game/AnimNotifies/AN_HitScanEnd.AN_HitScanEnd_C Name="AN_HitScanEnd_C_2" ExportPath="/Game/AnimNotifies/AN_HitScanEnd.AN_HitScanEnd_C'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AN_HitScanEnd_C_2'"
+   End Object
+   Begin Object Class=/Game/AnimNotifies/AN_HitScanEnd.AN_HitScanEnd_C Name="AN_HitScanEnd_C_1" ExportPath="/Game/AnimNotifies/AN_HitScanEnd.AN_HitScanEnd_C'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AN_HitScanEnd_C_1'"
+   End Object
+   Begin Object Class=/Game/AnimNotifies/AN_HitScanEnd.AN_HitScanEnd_C Name="AN_HitScanEnd_C_0" ExportPath="/Game/AnimNotifies/AN_HitScanEnd.AN_HitScanEnd_C'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AN_HitScanEnd_C_0'"
+   End Object
+   Begin Object Class=/Game/AnimNotifies/AN_ContinueComboStart.AN_ContinueComboStart_C Name="AN_ContinueComboStart_C_1" ExportPath="/Game/AnimNotifies/AN_ContinueComboStart.AN_ContinueComboStart_C'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AN_ContinueComboStart_C_1'"
+   End Object
+   Begin Object Class=/Game/AnimNotifies/AN_ContinueComboStart.AN_ContinueComboStart_C Name="AN_ContinueComboStart_C_0" ExportPath="/Game/AnimNotifies/AN_ContinueComboStart.AN_ContinueComboStart_C'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AN_ContinueComboStart_C_0'"
+   End Object
+   Begin Object Class=/Game/AnimNotifies/AN_ContinueComboEnd.AN_ContinueComboEnd_C Name="AN_ContinueComboEnd_C_1" ExportPath="/Game/AnimNotifies/AN_ContinueComboEnd.AN_ContinueComboEnd_C'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AN_ContinueComboEnd_C_1'"
+   End Object
+   Begin Object Class=/Game/AnimNotifies/AN_ContinueComboEnd.AN_ContinueComboEnd_C Name="AN_ContinueComboEnd_C_0" ExportPath="/Game/AnimNotifies/AN_ContinueComboEnd.AN_ContinueComboEnd_C'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AN_ContinueComboEnd_C_0'"
+   End Object
+   Begin Object Name="AnimNotifyState_TimedNiagaraEffect_2" ExportPath="/Script/NiagaraAnimNotifies.AnimNotifyState_TimedNiagaraEffect'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AnimNotifyState_TimedNiagaraEffect_2'"
+      Template="/Script/Niagara.NiagaraSystem'/Game/VFX/WeaponTrail/Fx/NS_Basic_Trail_2.NS_Basic_Trail_2'"
+      SocketName="axe_equipped_socket"
+      LocationOffset=(X=0.000000,Y=0.000000,Z=90.000000)
+      Scale=(X=1.500000,Y=1.500000,Z=1.500000)
+   End Object
+   Begin Object Name="AnimNotifyState_TimedNiagaraEffect_1" ExportPath="/Script/NiagaraAnimNotifies.AnimNotifyState_TimedNiagaraEffect'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AnimNotifyState_TimedNiagaraEffect_1'"
+      Template="/Script/Niagara.NiagaraSystem'/Game/VFX/WeaponTrail/Fx/NS_Basic_Trail_2.NS_Basic_Trail_2'"
+      SocketName="axe_equipped_socket"
+      LocationOffset=(X=0.000000,Y=0.000000,Z=90.000000)
+      Scale=(X=1.500000,Y=1.500000,Z=1.500000)
+   End Object
+   Begin Object Name="AnimNotifyState_TimedNiagaraEffect_0" ExportPath="/Script/NiagaraAnimNotifies.AnimNotifyState_TimedNiagaraEffect'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AnimNotifyState_TimedNiagaraEffect_0'"
+      Template="/Script/Niagara.NiagaraSystem'/Game/VFX/WeaponTrail/Fx/NS_Basic_Trail_2.NS_Basic_Trail_2'"
+      SocketName="axe_equipped_socket"
+      LocationOffset=(X=0.000000,Y=0.000000,Z=90.000000)
+      Scale=(X=1.500000,Y=1.500000,Z=1.500000)
+   End Object
+   Begin Object Name="AnimDataModel" ExportPath="/Script/Engine.AnimDataModel'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AnimDataModel'"
+      NumberOfFrames=252000
+      NumberOfKeys=252001
+   End Object
+   Begin Object Name="AN_HitScanStart_C_2" ExportPath="/Game/AnimNotifies/AN_HitScanStart.AN_HitScanStart_C'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AN_HitScanStart_C_2'"
+   End Object
+   Begin Object Name="AN_HitScanStart_C_1" ExportPath="/Game/AnimNotifies/AN_HitScanStart.AN_HitScanStart_C'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AN_HitScanStart_C_1'"
+   End Object
+   Begin Object Name="AN_HitScanStart_C_0" ExportPath="/Game/AnimNotifies/AN_HitScanStart.AN_HitScanStart_C'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AN_HitScanStart_C_0'"
+   End Object
+   Begin Object Name="AN_HitScanEnd_C_2" ExportPath="/Game/AnimNotifies/AN_HitScanEnd.AN_HitScanEnd_C'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AN_HitScanEnd_C_2'"
+   End Object
+   Begin Object Name="AN_HitScanEnd_C_1" ExportPath="/Game/AnimNotifies/AN_HitScanEnd.AN_HitScanEnd_C'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AN_HitScanEnd_C_1'"
+   End Object
+   Begin Object Name="AN_HitScanEnd_C_0" ExportPath="/Game/AnimNotifies/AN_HitScanEnd.AN_HitScanEnd_C'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AN_HitScanEnd_C_0'"
+   End Object
+   Begin Object Name="AN_ContinueComboStart_C_1" ExportPath="/Game/AnimNotifies/AN_ContinueComboStart.AN_ContinueComboStart_C'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AN_ContinueComboStart_C_1'"
+   End Object
+   Begin Object Name="AN_ContinueComboStart_C_0" ExportPath="/Game/AnimNotifies/AN_ContinueComboStart.AN_ContinueComboStart_C'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AN_ContinueComboStart_C_0'"
+   End Object
+   Begin Object Name="AN_ContinueComboEnd_C_1" ExportPath="/Game/AnimNotifies/AN_ContinueComboEnd.AN_ContinueComboEnd_C'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AN_ContinueComboEnd_C_1'"
+   End Object
+   Begin Object Name="AN_ContinueComboEnd_C_0" ExportPath="/Game/AnimNotifies/AN_ContinueComboEnd.AN_ContinueComboEnd_C'/Game/RPG-Assets/Animations/Axe/Montage_Axe_Combo.Montage_Axe_Combo:AN_ContinueComboEnd_C_0'"
+   End Object
+   CompositeSections(0)=(SectionName="Default",LinkedMontage="/Script/Engine.AnimMontage'Montage_Axe_Combo'",SegmentIndex=0,SegmentLength=4.200000,LinkedSequence="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-attack-combo.axe-attack-combo'")
+   SlotAnimTracks(0)=(AnimTrack=(AnimSegments=((CachedPlayLength=4.200000,AnimReference="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-attack-combo.axe-attack-combo'",AnimEndTime=4.200000))))
+   CommonTargetFrameRate=(Numerator=30)
+   Notifies(0)=(NotifyName="TimedNiagaraEffect",NotifyStateClass="/Script/NiagaraAnimNotifies.AnimNotifyState_TimedNiagaraEffect'AnimNotifyState_TimedNiagaraEffect_0'",Duration=0.476460,EndLink=(LinkedMontage="/Script/Engine.AnimMontage'Montage_Axe_Combo'",SegmentIndex=0,SegmentLength=4.200000,LinkValue=1.361408,LinkedSequence="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-attack-combo.axe-attack-combo'"),Guid=1834984245C177FC708D0B971A772C29,LinkedMontage="/Script/Engine.AnimMontage'Montage_Axe_Combo'",SegmentIndex=0,SegmentLength=4.200000,LinkValue=0.884948,LinkedSequence="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-attack-combo.axe-attack-combo'")
+   Notifies(1)=(EndTriggerTimeOffset=0.000100,NotifyName="AN_HitScanStart_C",Notify="/Game/AnimNotifies/AN_HitScanStart.AN_HitScanStart_C'AN_HitScanStart_C_0'",Guid=83D5A28B44D58954C5DCF096C113C22F,TrackIndex=1,LinkedMontage="/Script/Engine.AnimMontage'Montage_Axe_Combo'",SegmentIndex=0,SegmentLength=4.200000,LinkValue=0.914431,LinkedSequence="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-attack-combo.axe-attack-combo'")
+   Notifies(2)=(EndTriggerTimeOffset=0.000100,NotifyName="AN_ContinueComboStart_C",Notify="/Game/AnimNotifies/AN_ContinueComboStart.AN_ContinueComboStart_C'AN_ContinueComboStart_C_0'",Guid=2243B6E449508F364C74358009C3847C,TrackIndex=2,LinkedMontage="/Script/Engine.AnimMontage'Montage_Axe_Combo'",SegmentIndex=0,SegmentLength=4.200000,LinkValue=0.993091,LinkedSequence="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-attack-combo.axe-attack-combo'")
+   Notifies(3)=(EndTriggerTimeOffset=0.000100,NotifyName="AN_HitScanEnd_C",Notify="/Game/AnimNotifies/AN_HitScanEnd.AN_HitScanEnd_C'AN_HitScanEnd_C_0'",Guid=B8B18134433ECCC68EBB3FACD27F274D,TrackIndex=1,LinkedMontage="/Script/Engine.AnimMontage'Montage_Axe_Combo'",SegmentIndex=0,SegmentLength=4.200000,LinkValue=1.302562,LinkedSequence="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-attack-combo.axe-attack-combo'")
+   Notifies(4)=(EndTriggerTimeOffset=0.000100,NotifyName="AN_ContinueComboEnd_C",Notify="/Game/AnimNotifies/AN_ContinueComboEnd.AN_ContinueComboEnd_C'AN_ContinueComboEnd_C_0'",Guid=6339192B4D74D1E85CE32B83299D3B12,TrackIndex=2,LinkedMontage="/Script/Engine.AnimMontage'Montage_Axe_Combo'",SegmentIndex=0,SegmentLength=4.200000,LinkValue=1.394427,LinkedSequence="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-attack-combo.axe-attack-combo'")
+   Notifies(5)=(EndTriggerTimeOffset=0.000100,NotifyName="AN_HitScanStart_C",Notify="/Game/AnimNotifies/AN_HitScanStart.AN_HitScanStart_C'AN_HitScanStart_C_1'",Guid=36B6160E4F9B4B2778364EAE349931B0,TrackIndex=1,LinkedMontage="/Script/Engine.AnimMontage'Montage_Axe_Combo'",SegmentIndex=0,SegmentLength=4.200000,LinkValue=1.518446,LinkedSequence="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-attack-combo.axe-attack-combo'")
+   Notifies(6)=(NotifyName="TimedNiagaraEffect",NotifyStateClass="/Script/NiagaraAnimNotifies.AnimNotifyState_TimedNiagaraEffect'AnimNotifyState_TimedNiagaraEffect_1'",Duration=0.433683,EndLink=(LinkedMontage="/Script/Engine.AnimMontage'Montage_Axe_Combo'",SegmentIndex=0,SegmentLength=4.200000,LinkValue=2.037903,LinkedSequence="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-attack-combo.axe-attack-combo'"),Guid=2FBBEC6143EBCB2FE76C9F82853B4B43,LinkedMontage="/Script/Engine.AnimMontage'Montage_Axe_Combo'",SegmentIndex=0,SegmentLength=4.200000,LinkValue=1.604220,LinkedSequence="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-attack-combo.axe-attack-combo'")
+   Notifies(7)=(EndTriggerTimeOffset=0.000100,NotifyName="AN_ContinueComboStart_C",Notify="/Game/AnimNotifies/AN_ContinueComboStart.AN_ContinueComboStart_C'AN_ContinueComboStart_C_1'",Guid=23F5ACFA41E648515BD85BB062D76FCE,TrackIndex=2,LinkedMontage="/Script/Engine.AnimMontage'Montage_Axe_Combo'",SegmentIndex=0,SegmentLength=4.200000,LinkValue=1.656243,LinkedSequence="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-attack-combo.axe-attack-combo'")
+   Notifies(8)=(EndTriggerTimeOffset=0.000100,NotifyName="AN_HitScanEnd_C",Notify="/Game/AnimNotifies/AN_HitScanEnd.AN_HitScanEnd_C'AN_HitScanEnd_C_1'",Guid=C58C464044136F4D0FD336BAD541802A,TrackIndex=1,LinkedMontage="/Script/Engine.AnimMontage'Montage_Axe_Combo'",SegmentIndex=0,SegmentLength=4.200000,LinkValue=1.911169,LinkedSequence="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-attack-combo.axe-attack-combo'")
+   Notifies(9)=(EndTriggerTimeOffset=0.000100,NotifyName="AN_ContinueComboEnd_C",Notify="/Game/AnimNotifies/AN_ContinueComboEnd.AN_ContinueComboEnd_C'AN_ContinueComboEnd_C_1'",Guid=289667D84A1AA954FEFA94BBF3A460A8,TrackIndex=2,LinkedMontage="/Script/Engine.AnimMontage'Montage_Axe_Combo'",SegmentIndex=0,SegmentLength=4.200000,LinkValue=2.053560,LinkedSequence="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-attack-combo.axe-attack-combo'")
+   Notifies(10)=(NotifyName="TimedNiagaraEffect",NotifyStateClass="/Script/NiagaraAnimNotifies.AnimNotifyState_TimedNiagaraEffect'AnimNotifyState_TimedNiagaraEffect_2'",Duration=0.623064,EndLink=(LinkedMontage="/Script/Engine.AnimMontage'Montage_Axe_Combo'",SegmentIndex=0,SegmentLength=4.200000,LinkValue=3.104611,LinkedSequence="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-attack-combo.axe-attack-combo'"),Guid=6377BC634F9DF4A2DA92E38CEF1A2D99,LinkedMontage="/Script/Engine.AnimMontage'Montage_Axe_Combo'",SegmentIndex=0,SegmentLength=4.200000,LinkValue=2.481548,LinkedSequence="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-attack-combo.axe-attack-combo'")
+   Notifies(11)=(EndTriggerTimeOffset=0.000100,NotifyName="AN_HitScanStart_C",Notify="/Game/AnimNotifies/AN_HitScanStart.AN_HitScanStart_C'AN_HitScanStart_C_2'",Guid=BDE8CFA54C61E2F182577593B636BF1C,TrackIndex=1,LinkedMontage="/Script/Engine.AnimMontage'Montage_Axe_Combo'",SegmentIndex=0,SegmentLength=4.200000,LinkValue=2.641498,LinkedSequence="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-attack-combo.axe-attack-combo'")
+   Notifies(12)=(EndTriggerTimeOffset=0.000100,NotifyName="AN_HitScanEnd_C",Notify="/Game/AnimNotifies/AN_HitScanEnd.AN_HitScanEnd_C'AN_HitScanEnd_C_2'",Guid=321593E049FB018F67C53EAF78312DE6,TrackIndex=1,LinkedMontage="/Script/Engine.AnimMontage'Montage_Axe_Combo'",SegmentIndex=0,SegmentLength=4.200000,LinkValue=2.976807,LinkedSequence="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-attack-combo.axe-attack-combo'")
+   SequenceLength=4.200000
+   AnimNotifyTracks(0)=(TrackName="1",TrackColor=(R=0.500000,G=0.500000,B=0.500000,A=1.000000))
+   AnimNotifyTracks(1)=(TrackName="2",TrackColor=(R=0.900000,G=0.900000,B=0.900000,A=0.900000))
+   AnimNotifyTracks(2)=(TrackName="3",TrackColor=(R=0.500000,G=0.500000,B=0.500000,A=1.000000))
+   DataModelInterface=AnimDataModel'Montage_Axe_Combo:AnimDataModel'
+   Skeleton="/Script/Engine.Skeleton'/Game/Characters/Mannequins/Meshes/SK_Mannequin.SK_Mannequin'"
+End Object

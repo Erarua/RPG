@@ -1,0 +1,22 @@
+Begin Object Class=/Script/Engine.AnimMontage Name="Montage_Equip_Axe" ExportPath="/Script/Engine.AnimMontage'/Game/RPG-Assets/Animations/Axe/Montage_Equip_Axe.Montage_Equip_Axe'"
+   Begin Object Class=/Script/AnimGraphRuntime.AnimNotify_PlayMontageNotify Name="AnimNotify_PlayMontageNotify_0" ExportPath="/Script/AnimGraphRuntime.AnimNotify_PlayMontageNotify'/Game/RPG-Assets/Animations/Axe/Montage_Equip_Axe.Montage_Equip_Axe:AnimNotify_PlayMontageNotify_0'"
+   End Object
+   Begin Object Class=/Script/Engine.AnimDataModel Name="AnimDataModel" ExportPath="/Script/Engine.AnimDataModel'/Game/RPG-Assets/Animations/Axe/Montage_Equip_Axe.Montage_Equip_Axe:AnimDataModel'"
+   End Object
+   Begin Object Name="AnimNotify_PlayMontageNotify_0" ExportPath="/Script/AnimGraphRuntime.AnimNotify_PlayMontageNotify'/Game/RPG-Assets/Animations/Axe/Montage_Equip_Axe.Montage_Equip_Axe:AnimNotify_PlayMontageNotify_0'"
+      NotifyName="Equip"
+   End Object
+   Begin Object Name="AnimDataModel" ExportPath="/Script/Engine.AnimDataModel'/Game/RPG-Assets/Animations/Axe/Montage_Equip_Axe.Montage_Equip_Axe:AnimDataModel'"
+      NumberOfFrames=100000
+      NumberOfKeys=100001
+   End Object
+   CompositeSections(0)=(SectionName="Default",LinkedMontage="/Script/Engine.AnimMontage'Montage_Equip_Axe'",SegmentIndex=0,SegmentLength=1.666667,LinkedSequence="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-equip.axe-equip'")
+   SlotAnimTracks(0)=(SlotName="UpperBody",AnimTrack=(AnimSegments=((CachedPlayLength=1.666667,AnimReference="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-equip.axe-equip'",AnimEndTime=1.666667))))
+   BranchingPointMarkers(0)=(NotifyIndex=0,TriggerTime=0.942018)
+   CommonTargetFrameRate=(Numerator=30)
+   Notifies(0)=(NotifyName="PlayMontageNotify",Notify="/Script/AnimGraphRuntime.AnimNotify_PlayMontageNotify'AnimNotify_PlayMontageNotify_0'",EndLink=(LinkValue=0.942018),Guid=0AF1BA734685847B27FA88A29699A0D4,LinkedMontage="/Script/Engine.AnimMontage'Montage_Equip_Axe'",SegmentIndex=0,SegmentLength=1.666667,LinkValue=0.942018,LinkedSequence="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-equip.axe-equip'")
+   SequenceLength=1.666667
+   AnimNotifyTracks(0)=(TrackName="1",TrackColor=(R=0.500000,G=0.500000,B=0.500000,A=1.000000))
+   DataModelInterface=AnimDataModel'Montage_Equip_Axe:AnimDataModel'
+   Skeleton="/Script/Engine.Skeleton'/Game/Characters/Mannequins/Meshes/SK_Mannequin.SK_Mannequin'"
+End Object

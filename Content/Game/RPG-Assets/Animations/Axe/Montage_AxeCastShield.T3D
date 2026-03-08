@@ -1,0 +1,21 @@
+Begin Object Class=/Script/Engine.AnimMontage Name="Montage_AxeCastShield" ExportPath="/Script/Engine.AnimMontage'/Game/RPG-Assets/Animations/Axe/Montage_AxeCastShield.Montage_AxeCastShield'"
+   Begin Object Class=/Script/Engine.AnimDataModel Name="AnimDataModel" ExportPath="/Script/Engine.AnimDataModel'/Game/RPG-Assets/Animations/Axe/Montage_AxeCastShield.Montage_AxeCastShield:AnimDataModel'"
+   End Object
+   Begin Object Class=/Game/AnimNotifies/AN_SendGameplayEvent.AN_SendGameplayEvent_C Name="AN_SendGameplayEvent_C_0" ExportPath="/Game/AnimNotifies/AN_SendGameplayEvent.AN_SendGameplayEvent_C'/Game/RPG-Assets/Animations/Axe/Montage_AxeCastShield.Montage_AxeCastShield:AN_SendGameplayEvent_C_0'"
+   End Object
+   Begin Object Name="AnimDataModel" ExportPath="/Script/Engine.AnimDataModel'/Game/RPG-Assets/Animations/Axe/Montage_AxeCastShield.Montage_AxeCastShield:AnimDataModel'"
+      NumberOfFrames=87000
+      NumberOfKeys=87001
+   End Object
+   Begin Object Name="AN_SendGameplayEvent_C_0" ExportPath="/Game/AnimNotifies/AN_SendGameplayEvent.AN_SendGameplayEvent_C'/Game/RPG-Assets/Animations/Axe/Montage_AxeCastShield.Montage_AxeCastShield:AN_SendGameplayEvent_C_0'"
+      Event Tag=(TagName="Event.Montage.Trigger")
+   End Object
+   CompositeSections(0)=(SectionName="Default",LinkedMontage="/Script/Engine.AnimMontage'Montage_AxeCastShield'",SegmentIndex=0,SegmentLength=1.450000,LinkedSequence="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-cast-shield.axe-cast-shield'")
+   SlotAnimTracks(0)=(SlotName="UpperBody",AnimTrack=(AnimSegments=((CachedPlayLength=5.000000,AnimReference="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-cast-shield.axe-cast-shield'",AnimEndTime=1.450000))))
+   CommonTargetFrameRate=(Numerator=30)
+   Notifies(0)=(NotifyName="AN_SendGameplayEvent_C",Notify="/Game/AnimNotifies/AN_SendGameplayEvent.AN_SendGameplayEvent_C'AN_SendGameplayEvent_C_0'",EndLink=(LinkValue=0.666945),Guid=53D5D1FC40DB797FA8EE43A5E8C196A8,LinkedMontage="/Script/Engine.AnimMontage'Montage_AxeCastShield'",SegmentIndex=0,SegmentLength=1.450000,LinkValue=0.666945,LinkedSequence="/Script/Engine.AnimSequence'/Game/Animations/Axe/axe-cast-shield.axe-cast-shield'")
+   SequenceLength=1.450000
+   AnimNotifyTracks(0)=(TrackName="1",TrackColor=(R=0.500000,G=0.500000,B=0.500000,A=1.000000))
+   DataModelInterface=AnimDataModel'Montage_AxeCastShield:AnimDataModel'
+   Skeleton="/Script/Engine.Skeleton'/Game/Characters/Mannequins/Meshes/SK_Mannequin.SK_Mannequin'"
+End Object

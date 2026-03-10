@@ -136,3 +136,8 @@ void ARPGCharacterBase::SendAbilitiesChangedEvent()
 	UAbilitySystemBlueprintLibrary::SendGameplayEventToActor(this, EventData.EventTag, EventData);
 }
 
+void ARPGCharacterBase::ServerSendGameplayEventToSelf_Implementation(FGameplayEventData EventData)
+{
+	UAbilitySystemBlueprintLibrary::SendGameplayEventToActor(this, EventData.EventTag, EventData);
+}
+

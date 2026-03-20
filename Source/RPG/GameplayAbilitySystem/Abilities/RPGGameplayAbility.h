@@ -17,4 +17,6 @@ class RPG_API URPGGameplayAbility : public UGameplayAbility
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI");
 	bool ShouldShowInAbilitiesBar = false;
+	
+	URPGGameplayAbility();
 };

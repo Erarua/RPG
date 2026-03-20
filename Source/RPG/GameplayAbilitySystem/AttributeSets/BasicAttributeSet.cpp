@@ -13,7 +13,7 @@ UBasicAttributeSet::UBasicAttributeSet()
 	MaxStamina = 100.f;
 }
 
-void UBasicAttributeSet::GetLifetimeReplicatedProps(TArray<class FLifetimeProperty>& OutLifetimeProps) const
+void UBasicAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	
@@ -37,16 +37,34 @@ void UBasicAttributeSet::PreAttributeChange(const FGameplayAttribute& Attribute,
 	}
 }
 
-void UBasicAttributeSet::PostGameplayEffectExecute(const struct FGameplayEffectModCallbackData& Data)
+void UBasicAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data)
 {
 	Super::PostGameplayEffectExecute(Data);
 	
 	if (Data.EvaluatedData.Attribute == GetHealthAttribute())
 	{
 		SetHealth(GetHealth());
+		
+		FGameplayTagContainer HitReactionTagContainer;
+		HitReactionTagContainer.AddTag(FGameplayTag::RequestGameplayTag(FName("GameplayAbility.HitReaction")));
+		GetOwningAbilitySystemComponent()->TryActivateAbilitiesByTag(HitReactionTagContainer);
 	}
 	else if (Data.EvaluatedData.Attribute == GetStaminaAttribute())
 	{
 		SetStamina(GetStamina());
 	}
+}
+
+void UBasicAttributeSet::PostAttributeChange(const FGameplayAttribute& Attribute, float OldValue, float NewValue)
+{
+	Super::PostAttributeChange(Attribute, OldValue, NewValue);
+	
+	if (Attribute == GetHealthAttribute() && NewValue <= 0.f)
+	{
+		FGameplayTagContainer DeathTagContainer;
+		DeathTagContainer.AddTag(FGameplayTag::RequestGameplayTag(FName("GameplayAbility.Death")));
+		GetOwningAbilitySystemComponent()->TryActivateAbilitiesByTag(DeathTagContainer);
+	}
+	
+	
 }

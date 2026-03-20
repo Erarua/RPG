@@ -49,6 +49,9 @@ ARPGCharacterBase::ARPGCharacterBase()
 void ARPGCharacterBase::BeginPlay()
 {
 	Super::BeginPlay();
+	
+	AbilitySystemComponent->RegisterGameplayTagEvent(FGameplayTag::RequestGameplayTag(FName("Status.Dead")))
+		.AddUObject(this, &ARPGCharacterBase::OnDeadTagChange);
 }
 
 void ARPGCharacterBase::PossessedBy(AController* NewController)
@@ -70,6 +73,26 @@ void ARPGCharacterBase::OnRep_PlayerState()
 	{
 		AbilitySystemComponent->InitAbilityActorInfo(this, this);
 	}
+}
+
+void ARPGCharacterBase::OnDeadTagChange(const FGameplayTag CallbackTag, int32 NewCount)
+{
+	if (NewCount > 0)
+	{
+		HandleDeath();
+	}
+}
+
+void ARPGCharacterBase::HandleDeath_Implementation()
+{
+	GetMesh()->SetSimulatePhysics(true);
+	GetMesh()->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	GetCharacterMovement()->DisableMovement();
+
+	FVector Impulse = GetActorForwardVector() * -20000;
+	Impulse.Z = 15000;
+	GetMesh()->AddImpulseAtLocation(Impulse, GetActorLocation());
 }
 
 // Called every frame

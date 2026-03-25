@@ -23,8 +23,8 @@ public:
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
-	
-	void OnRep_ActivateAbilities() override;
+
+	virtual void OnRep_ActivateAbilities() override;
 
 public:
 	// Called every frame

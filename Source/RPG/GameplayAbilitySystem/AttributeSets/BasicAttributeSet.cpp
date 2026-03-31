@@ -11,6 +11,9 @@ UBasicAttributeSet::UBasicAttributeSet()
 	MaxHealth = 100.f;
 	Stamina = 100.f;
 	MaxStamina = 100.f;
+	Damage = 0.f;
+	Shield = 0.f;
+	MaxShield = 100.f;
 }
 
 void UBasicAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
@@ -35,23 +38,46 @@ void UBasicAttributeSet::PreAttributeChange(const FGameplayAttribute& Attribute,
 	{
 		NewValue = FMath::Clamp(NewValue, 0.f, GetMaxStamina());
 	}
+	else if (Attribute == GetShieldAttribute())
+	{
+		NewValue = FMath::Clamp(NewValue, 0.f, GetMaxShield());
+	}
 }
 
 void UBasicAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data)
 {
 	Super::PostGameplayEffectExecute(Data);
 	
-	if (Data.EvaluatedData.Attribute == GetHealthAttribute())
+	if (Data.EvaluatedData.Attribute == GetDamageAttribute())
 	{
-		SetHealth(GetHealth());
-		
-		if (Data.EffectSpec.Def->GetAssetTags().HasTag(FGameplayTag::RequestGameplayTag(FName("GameplayAbility.HitReaction")))
-			&& Data.EvaluatedData.Magnitude != 0.f)
+		if (GetDamage() > 0.f)
 		{
+			
 			FGameplayTagContainer HitReactionTagContainer;
 			HitReactionTagContainer.AddTag(FGameplayTag::RequestGameplayTag(FName("GameplayAbility.HitReaction")));
 			GetOwningAbilitySystemComponent()->TryActivateAbilitiesByTag(HitReactionTagContainer);
+			
+			float DamageToApply = GetDamage();
+			
+			if (GetShield() > 0.f)
+			{
+				float ShieldAbsorb = FMath::Min(GetShield(), DamageToApply);
+				SetShield(GetShield() - ShieldAbsorb);
+				DamageToApply -= ShieldAbsorb;
+			}
+			
+			if (DamageToApply > 0.f)
+			{
+				SetHealth(GetHealth() - DamageToApply);
+			}
+			
+			SetDamage(0.f);
 		}
+	}
+	
+	if (Data.EvaluatedData.Attribute == GetHealthAttribute())
+	{
+		SetHealth(GetHealth());
 		
 	}
 	else if (Data.EvaluatedData.Attribute == GetStaminaAttribute())

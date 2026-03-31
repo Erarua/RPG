@@ -38,6 +38,21 @@ public:
 	FGameplayAttributeData MaxStamina;
 	ATTRIBUTE_ACCESSORS_BASIC(UBasicAttributeSet, MaxStamina);
 	
+	
+	// Damage Attribute
+	UPROPERTY(BlueprintReadOnly, Category = "Attributes", ReplicatedUsing = OnRep_MaxStamina)
+    FGameplayAttributeData Damage;
+    ATTRIBUTE_ACCESSORS_BASIC(UBasicAttributeSet, Damage);
+    
+    // Shield Attributes
+    UPROPERTY(BlueprintReadOnly, Category = "Attributes", ReplicatedUsing = OnRep_Shield)
+    FGameplayAttributeData Shield;
+    ATTRIBUTE_ACCESSORS_BASIC(UBasicAttributeSet, Shield);
+    	
+    UPROPERTY(BlueprintReadOnly, Category = "Attributes", ReplicatedUsing = OnRep_MaxShield)
+    FGameplayAttributeData MaxShield;
+    ATTRIBUTE_ACCESSORS_BASIC(UBasicAttributeSet, MaxShield);
+	
 public:
 	
 	UFUNCTION()
@@ -60,6 +75,18 @@ public:
 	
 	UFUNCTION()
 	void OnRep_MaxStamina(const FGameplayAttributeData& OldValue) const
+	{
+		GAMEPLAYATTRIBUTE_REPNOTIFY(UBasicAttributeSet, MaxStamina, OldValue);
+	}
+	
+	UFUNCTION()
+	void OnRep_Shield(const FGameplayAttributeData& OldValue) const
+	{
+		GAMEPLAYATTRIBUTE_REPNOTIFY(UBasicAttributeSet, Stamina, OldValue);
+	}
+	
+	UFUNCTION()
+	void OnRep_MaxShield(const FGameplayAttributeData& OldValue) const
 	{
 		GAMEPLAYATTRIBUTE_REPNOTIFY(UBasicAttributeSet, MaxStamina, OldValue);
 	}

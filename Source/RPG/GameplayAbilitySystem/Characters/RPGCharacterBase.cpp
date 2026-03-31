@@ -8,7 +8,9 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "AbilitySystemBlueprintLibrary.h"
 #include "RPG/GameplayAbilitySystem/RPGAbilitySystemComponent.h"
+#include "RPG/GameplayAbilitySystem/Abilities/RPGGameplayAbility.h"
 #include "RPG/GameplayAbilitySystem/AttributeSets/BasicAttributeSet.h"
+#include "RPG/GameplayAbilitySystem/AttributeSets/CombatAttributeSet.h"
 
 // Sets default values
 ARPGCharacterBase::ARPGCharacterBase()
@@ -40,8 +42,9 @@ ARPGCharacterBase::ARPGCharacterBase()
 	GetCharacterMovement()->BrakingDecelerationWalking = 2000.0f;
 	GetCharacterMovement()->BrakingDecelerationFalling = 1500.f;
 	
-	// Add the basic attribute set
+	// Add attribute sets
 	BasicAttributeSet = CreateDefaultSubobject<UBasicAttributeSet>(TEXT("BasicAttributeSet"));
+	CombatAttributeSet = CreateDefaultSubobject<UCombatAttributeSet>(TEXT("CombatAttributeSet"));
 
 }
 
@@ -126,7 +129,14 @@ TArray<FGameplayAbilitySpecHandle> ARPGCharacterBase::GrantAbilities(
 	
 	for (TSubclassOf<UGameplayAbility> Ability : AbilitiesToGrant)
 	{
-		FGameplayAbilitySpecHandle SpecHandle = AbilitySystemComponent->GiveAbility(FGameplayAbilitySpec(Ability, 1, -1, this));
+		int32 InputID = -1;
+		
+		if (const URPGGameplayAbility* RPGAbilityCDO = GetDefault<URPGGameplayAbility>(Ability))
+		{
+			InputID = static_cast<int32>(RPGAbilityCDO->AbilityInputID);
+		}
+		
+		FGameplayAbilitySpecHandle SpecHandle = AbilitySystemComponent->GiveAbility(FGameplayAbilitySpec(Ability, 1, InputID, this));
 		AbilitySpecHandles.Add(SpecHandle);
 	}
 	

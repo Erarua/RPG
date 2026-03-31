@@ -6,6 +6,18 @@
 #include "Abilities/GameplayAbility.h"
 #include "RPGGameplayAbility.generated.h"
 
+UENUM(BlueprintType)
+enum class EAbilityInputID : uint8
+{
+	None UMETA(DisplayName = "None"),
+	PrimaryAbility UMETA(DisplayName = "Primary Ability"),
+	SecondaryAbility UMETA(DisplayName = "Secondary Ability"),
+	DefensiveAbility UMETA(DisplayName = "Defensive Ability"),
+	MovementAbility UMETA(DisplayName = "Movement Ability"),
+	
+};
+
+
 /**
  * 
  */
@@ -17,6 +29,9 @@ class RPG_API URPGGameplayAbility : public UGameplayAbility
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI");
 	bool ShouldShowInAbilitiesBar = false;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Input");
+	EAbilityInputID AbilityInputID = EAbilityInputID::None;
 	
 	URPGGameplayAbility();
 };

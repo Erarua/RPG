@@ -8,6 +8,7 @@
 #include "AbilitySystemComponent.h"
 #include "RPGCharacterBase.generated.h"
 
+class UCombatAttributeSet;
 class UBasicAttributeSet;
 
 UCLASS()
@@ -25,6 +26,9 @@ public:
 	
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "AbilitySystem")
 	UBasicAttributeSet* BasicAttributeSet;
+	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "AbilitySystem")
+	UCombatAttributeSet* CombatAttributeSet;
 
 protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "AbilitySystem")
@@ -53,7 +57,7 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	
-	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const;
+	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 	
 	UFUNCTION(BlueprintCallable, Category = "AbilitySystem")
 	TArray<FGameplayAbilitySpecHandle> GrantAbilities(TArray<TSubclassOf<UGameplayAbility>> AbilitiesToGrant);

@@ -130,14 +130,21 @@ TArray<FGameplayAbilitySpecHandle> ARPGCharacterBase::GrantAbilities(
 	for (TSubclassOf<UGameplayAbility> Ability : AbilitiesToGrant)
 	{
 		int32 InputID = -1;
+		bool bShouldAutoActivate = false;
 		
 		if (const URPGGameplayAbility* RPGAbilityCDO = GetDefault<URPGGameplayAbility>(Ability))
 		{
 			InputID = static_cast<int32>(RPGAbilityCDO->AbilityInputID);
+			bShouldAutoActivate = RPGAbilityCDO->AutoActivateWhenGranted;
 		}
 		
 		FGameplayAbilitySpecHandle SpecHandle = AbilitySystemComponent->GiveAbility(FGameplayAbilitySpec(Ability, 1, InputID, this));
 		AbilitySpecHandles.Add(SpecHandle);
+		
+		if (bShouldAutoActivate)
+		{
+			AbilitySystemComponent->TryActivateAbility(SpecHandle);
+		}
 	}
 	
 	SendAbilitiesChangedEvent();

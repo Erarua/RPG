@@ -52,10 +52,15 @@ void UBasicAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallb
 	{
 		if (GetDamage() > 0.f)
 		{
-			
-			FGameplayTagContainer HitReactionTagContainer;
-			HitReactionTagContainer.AddTag(FGameplayTag::RequestGameplayTag(FName("GameplayAbility.HitReaction")));
-			GetOwningAbilitySystemComponent()->TryActivateAbilitiesByTag(HitReactionTagContainer);
+			FGameplayTagContainer DebuffTagContainer;
+			Data.EffectSpec.GetAllGrantedTags(DebuffTagContainer);
+			if (!DebuffTagContainer.HasTag(FGameplayTag::RequestGameplayTag(FName("Status.Debuff"))))
+			{
+				// If the damage effect do not have a debuff tag, we consider it as a hit and try to activate hit reaction abilities
+				FGameplayTagContainer HitReactionTagContainer;
+				HitReactionTagContainer.AddTag(FGameplayTag::RequestGameplayTag(FName("GameplayAbility.HitReaction")));
+				GetOwningAbilitySystemComponent()->TryActivateAbilitiesByTag(HitReactionTagContainer);
+			}
 			
 			float DamageToApply = GetDamage();
 			

@@ -1,1 +1,1 @@
-<video src="https://www.bilibili.com/video/BV1CxQbBSELU/" width="600" controls="controls"></video>
+<iframe width="560" height="315" src="https://www.bilibili.com/video/BV1CxQbBSELU/" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

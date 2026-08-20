@@ -50,6 +50,7 @@ void UBasicAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallb
 	
 	if (Data.EvaluatedData.Attribute == GetDamageAttribute())
 	{
+		UE_LOG(LogTemp, Warning, TEXT("Damage Attribute Changed: %f"), GetDamage());
 		if (GetDamage() > 0.f)
 		{
 			FGameplayTagContainer DebuffTagContainer;
@@ -77,6 +78,37 @@ void UBasicAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallb
 			}
 			
 			SetDamage(0.f);
+		}
+	}
+	
+	if (Data.EvaluatedData.Attribute == GetHealthDamageAttribute())
+	{
+		if (GetHealthDamage() > 0.f)
+		{
+			FGameplayTagContainer HitReactionTagContainer;
+			Data.EffectSpec.GetAllAssetTags(HitReactionTagContainer);
+			if (HitReactionTagContainer.HasTagExact(FGameplayTag::RequestGameplayTag(FName("GameplayAbility.HitReaction"))))
+			{
+				FGameplayTagContainer TagContainer;
+				TagContainer.AddTag(FGameplayTag::RequestGameplayTag(FName("GameplayAbility.HitReaction")));
+				GetOwningAbilitySystemComponent()->TryActivateAbilitiesByTag(TagContainer);
+			}
+			
+			float DamageToApply = GetHealthDamage();
+			SetHealth(GetHealth() - DamageToApply);
+			
+			SetHealthDamage(0.f);
+		}
+	}
+	
+	if (Data.EvaluatedData.Attribute == GetShieldDamageAttribute())
+	{
+		if (GetShieldDamage() > 0.f)
+		{
+			float ShieldDamageToApply = GetShieldDamage();
+			SetShield(GetShield() - ShieldDamageToApply);
+			
+			SetShieldDamage(0.f);
 		}
 	}
 	

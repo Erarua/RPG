@@ -77,3 +77,7 @@ DerivedDataCache/*
 /Content/__ExternalObjects__
 /Content/ParagonGideon
 /Content/Nexus-Assets
+/Content/Script
+/Plugins/UnLua
+/Plugins/UnLuaExtensions
+/Plugins/UnLuaTestSuite

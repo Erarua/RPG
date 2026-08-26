@@ -14,6 +14,7 @@
 
 void URPGSlotWidget::RefreshWidget(const FRPGInventorySlotData& SlotData)
 {
+	TRACE_BOOKMARK(TEXT("SlotWidget Refresh Begins"));
 	UE_LOG(LogTemp, Warning, TEXT("[%s] Slot Index=%i"), *FDateTime::UtcNow().ToString(), SlotIndex);
 	UE_LOG(LogTemp, Warning, TEXT("Data: ItemID=%s, Amount=%i, Locked=%s"), *SlotData.ItemID.ToString(), SlotData.Amount, SlotData.bIsLocked ? TEXT("true") : TEXT("false"));
 	bIsLocked = SlotData.bIsLocked;
@@ -28,6 +29,7 @@ void URPGSlotWidget::RefreshWidget(const FRPGInventorySlotData& SlotData)
 	{
 		ItemIcon->SetVisibility(ESlateVisibility::Hidden);
 		AmountText->SetVisibility(ESlateVisibility::Hidden);
+		TRACE_BOOKMARK(TEXT("SlotWidget Refresh Empty Ends"));
 		return;
 	} 
 	
@@ -36,6 +38,7 @@ void URPGSlotWidget::RefreshWidget(const FRPGInventorySlotData& SlotData)
 	if (!ItemData)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("ItemData not found for ItemID: %s"), *SlotData.ItemID.ToString());
+		TRACE_BOOKMARK(TEXT("SlotWidget Refresh No Data Ends"));
 		return;
 	}
 	
@@ -54,6 +57,7 @@ void URPGSlotWidget::RefreshWidget(const FRPGInventorySlotData& SlotData)
 		AmountText->SetVisibility(ESlateVisibility::Hidden);
 	}
 	
+	TRACE_BOOKMARK(TEXT("SlotWidget Refresh Ends"));
 	UE_LOG(LogTemp, Warning, TEXT("[%s] Slot Index=%i Refreshed. ItemID=%s, Amount=%i, Locked=%s"), *FDateTime::UtcNow().ToString(), SlotIndex, *SlotData.ItemID.ToString(), SlotData.Amount, SlotData.bIsLocked ? TEXT("true") : TEXT("false"));
 }
 
@@ -119,6 +123,7 @@ bool URPGSlotWidget::NativeOnDrop(const FGeometry& InGeometry, const FDragDropEv
 	{
 		if (DragDropOp->SourceSlotIndex != SlotIndex)
 		{
+			TRACE_BOOKMARK(TEXT("Swap Request From SlotWidget"));
 			UE_LOG(LogTemp, Warning, TEXT("Drop On Slot %d"), SlotIndex);
 			OnSlotSwapped.Broadcast(DragDropOp->SourceSlotIndex, SlotIndex);
 		}
@@ -152,6 +157,7 @@ void URPGSlotWidget::MyOnDragCancelled(UDragDropOperation* InOperation)
 {
 	if (URPGSlotDragDropOp* DragDropOp = Cast<URPGSlotDragDropOp>(InOperation))
 	{
+		TRACE_BOOKMARK(TEXT("Remove Request From SlotWidget"));
 		UE_LOG(LogTemp, Warning, TEXT("Drag cancelled for slot index: %d"), DragDropOp->SourceSlotIndex);
 		OnItemRemoved.Broadcast(DragDropOp->SourceSlotIndex);
 	}

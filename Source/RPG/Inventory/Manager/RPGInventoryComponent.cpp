@@ -79,12 +79,14 @@ void URPGInventoryComponent::Server_UseItem_Implementation(int32 SlotIndex)
 
 void URPGInventoryComponent::Server_RemoveItem_Implementation(int32 SlotIndex)
 {
+	TRACE_BOOKMARK(TEXT("Server_RemoveItem Begins"));
 	if (!GetOwner()->HasAuthority()) return;
 	if (!Slots.IsValidIndex(SlotIndex)) return;
 	
 	OnItemRemoved(SlotIndex);
 	
 	UE_LOG(LogTemp, Warning, TEXT("Server_RemoveItem"));
+	TRACE_BOOKMARK(TEXT("Server_RemoveItem Ends"));
 }
 
 bool URPGInventoryComponent::ReplicateSubobjects(class UActorChannel* Channel, class FOutBunch* Bunch,
@@ -125,6 +127,9 @@ void URPGInventoryComponent::ReadyForReplication()
 
 void URPGInventoryComponent::Server_SwapSlots_Implementation(int32 SourceIndex, int32 TargetIndex)
 {
+	FString BookMarkMsg = FString::Printf(TEXT("Server_SwapSlots Begins in %s"), *GetOwner()->GetName());
+	TRACE_BOOKMARK(TEXT("Server_SwapSlots Begins"));
+	UE_LOG(LogTemp, Warning, TEXT("%s"), *BookMarkMsg);
 	if (!GetOwner()->HasAuthority()) return;
 	SwapSlots(SourceIndex, TargetIndex);
 }
@@ -139,15 +144,19 @@ bool URPGInventoryComponent::SwapSlots(int32 SourceIndex, int32 TargetIndex)
 	if (!Slots.IsValidIndex(SourceIndex) || !Slots.IsValidIndex(TargetIndex)) return false;
 	if (SourceIndex == TargetIndex) return true;
 	if (Slots[SourceIndex].SlotData.bIsLocked || Slots[TargetIndex].SlotData.bIsLocked) return false;
+	TRACE_BOOKMARK(TEXT("SwapSlots Begins"));
 
 	// UE_LOG(LogTemp, Warning, TEXT("Swapping slots: SourceIndex=%d, TargetIndex=%d"), SourceIndex, TargetIndex);
 	// UE_LOG(LogTemp, Warning, TEXT("SourceData: ItemID=%s, Amount=%i Locked=%s"), *Slots[SourceIndex].SlotData.ItemID.ToString(), Slots[SourceIndex].SlotData.Amount, Slots[TargetIndex].SlotData.bIsLocked ? TEXT("true") : TEXT("false"));
 	// UE_LOG(LogTemp, Warning, TEXT("TargetData: ItemID=%s, Amount=%i Locked=%s"), *Slots[TargetIndex].SlotData.ItemID.ToString(), Slots[TargetIndex].SlotData.Amount, Slots[TargetIndex].SlotData.bIsLocked ? TEXT("true") : TEXT("false"));
+	
+	
 	Slots.Swap(SourceIndex, TargetIndex);
 	if (AActor* Owner = GetOwner())
 	{
 		Owner->ForceNetUpdate();
 	}
+	
 
 	// UE_LOG(LogTemp, Warning, TEXT("Swapped slots: SourceIndex=%d, TargetIndex=%d"), SourceIndex, TargetIndex);
 	// UE_LOG(LogTemp, Warning, TEXT("SourceData: ItemID=%s, Amount=%i Locked=%s"), *Slots[SourceIndex].SlotData.ItemID.ToString(), Slots[SourceIndex].SlotData.Amount, Slots[TargetIndex].SlotData.bIsLocked ? TEXT("true") : TEXT("false"));
@@ -158,8 +167,13 @@ bool URPGInventoryComponent::SwapSlots(int32 SourceIndex, int32 TargetIndex)
 	{
 		OnSlotDataUpdated.Broadcast(SourceIndex, Slots[SourceIndex].SlotData);
 		OnSlotDataUpdated.Broadcast(TargetIndex, Slots[TargetIndex].SlotData);
+		TRACE_BOOKMARK(TEXT("OnSlotDataSwapped Broadcast"));
 		// UE_LOG(LogTemp, Warning, TEXT("Broadcasted slot data updated for SourceIndex=%d and TargetIndex=%d"), SourceIndex, TargetIndex);
 	}
+	
+	TRACE_BOOKMARK(TEXT("Server_SwapSlots Ends"));
+	FString BookMarkMsg = FString::Printf(TEXT("Server_SwapSlots Ends in %s"), *GetOwner()->GetName());
+	UE_LOG(LogTemp, Warning, TEXT("%s"), *BookMarkMsg);
 
 	return true;
 }
@@ -228,6 +242,9 @@ void URPGInventoryComponent::GetLifetimeReplicatedProps(TArray<class FLifetimePr
 
 void URPGInventoryComponent::Server_AddRandomItem_Implementation()
 {
+	TRACE_BOOKMARK(TEXT("Server_AddRandomItem Begins"));
+	FString BookMarkMsg = FString::Printf(TEXT("Server_AddRandomItem Begins in %s"), *GetOwner()->GetName());
+	UE_LOG(LogTemp, Warning, TEXT("%s"), *BookMarkMsg);
 	// UE_LOG(LogTemp, Warning, TEXT("Server_AddRandomItem_Implementation"));
 	const UDataTable* ItemTable = URPGInvetoryAssetManager::Get().GetItemTable();
 	if (!ItemTable)
@@ -246,12 +263,20 @@ void URPGInventoryComponent::Server_AddRandomItem_Implementation()
 	FName ItemID = ItemNames[RandomIdx];
 
 	AddItem(ItemID);
+	
+	TRACE_BOOKMARK(TEXT("Server_AddRandomItem Ends"));
+	BookMarkMsg = FString::Printf(TEXT("Server_AddRandomItem Ends in %s"), *GetOwner()->GetName());
+	UE_LOG(LogTemp, Warning, TEXT("%s"), *BookMarkMsg);
 }
 
 void URPGInventoryComponent::OnRep_Slots(const TArray<FRPGInstanceData>& OldSlots)
 {
 	// UE_LOG(LogTemp, Warning, TEXT("[%s] OnRep_Slots"), *FDateTime::UtcNow().ToString());
 	// UE_LOG(LogTemp, Warning, TEXT("Slots.Num()=%d, OldSlots.Num()=%d"), Slots.Num(), OldSlots.Num());
+	
+	TRACE_BOOKMARK(TEXT("OnRep_Slots Begins"));
+	FString BookMarkMsg = FString::Printf(TEXT("OnRep_Slots Begins in %s"), *GetOwner()->GetName());
+	UE_LOG(LogTemp, Warning, TEXT("%s"), *BookMarkMsg);
 
 	if (Slots.IsEmpty() || OldSlots.IsEmpty())
 	{
@@ -297,6 +322,10 @@ void URPGInventoryComponent::OnRep_Slots(const TArray<FRPGInstanceData>& OldSlot
 		}
 	}
 	// UE_LOG(LogTemp, Warning, TEXT("[%s] OnRep_Slots Finished"), *FDateTime::UtcNow().ToString());
+	
+	TRACE_BOOKMARK(TEXT("OnRep_Slots Ends"));
+	BookMarkMsg = FString::Printf(TEXT("OnRep_Slots Ends in %s"), *GetOwner()->GetName());
+	UE_LOG(LogTemp, Warning, TEXT("%s"), *BookMarkMsg);
 }
 
 UAbilitySystemComponent* URPGInventoryComponent::ResolveASC() const
@@ -345,6 +374,7 @@ void URPGInventoryComponent::AddItem(FName ItemID)
 						Owner->ForceNetUpdate();
 					}
 					OnSlotDataUpdated.Broadcast(Idx, Slots[Idx].SlotData);
+					TRACE_BOOKMARK(TEXT("OnSlotDataAdded Broadcast"));
 				}
 				return;
 			}
@@ -377,6 +407,7 @@ void URPGInventoryComponent::AddItem(FName ItemID)
 				Owner->ForceNetUpdate();
 			}
 			OnSlotDataUpdated.Broadcast(Idx, Slots[Idx].SlotData);
+			TRACE_BOOKMARK(TEXT("OnSlotDataAdded Broadcast"));
 			break;
 		}
 		Idx++;
